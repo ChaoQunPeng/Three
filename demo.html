@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./three.js"></script>
+    <script>
+        var camera, scene, renderer;
+        var geometry, material, mesh;
+
+        init();
+        animate();
+
+        function init() {
+            // 定义一个相机。就是创建一个看three.JS的眼睛
+            camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.01, 10);
+            camera.position.z = 1;
+            // 创建一个场景。我们所有的创建东西都放在这个场景里
+            scene = new THREE.Scene();
+            // 创建的这个物体的几何结构、材质等
+            geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+            material = new THREE.MeshNormalMaterial();
+            // 根据上面定义的几何形状和材质创建一个物体
+            mesh = new THREE.Mesh(geometry, material);
+            mesh.rotation.x = 10;
+            mesh.rotation.y = 10;
+            // 放到哪个场景里
+            scene.add(mesh);
+            //创建一个渲染器
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            //设置渲染器的大小，这里就是设置全屏
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            // 放到body里
+            document.body.appendChild(renderer.domElement);
+        }
+        
+        // 让创建的物体动起来
+        function animate() {
+            // requestAnimationFrame(animate);
+
+            // mesh.rotation.x += 0.01;
+            // mesh.rotation.y += 0.02;
+
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+
+</html>
