@@ -35,19 +35,6 @@ function init() {
     scene.children[1].position.x = 2;
     scene.children[1].position.y = 2;
     scene.children[1].position.z = -2;
-
-
-    scene.children[2].position.x = -2;
-    scene.children[2].position.y = 2;
-    scene.children[2].position.z = -2;
-
-    scene.children[3].position.x = -2;
-    scene.children[3].position.y = 2;
-    scene.children[3].position.z = 2;
-
-    scene.children[4].position.x = 2;
-    scene.children[4].position.y = 2;
-    scene.children[4].position.z = 2;
 }
 
 function create(shape) {
@@ -64,9 +51,7 @@ function create(shape) {
         default:
             break;
     }
-
     scene.add(new THREE.Mesh(geometry, material));
-
 }
 
 init();
